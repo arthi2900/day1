@@ -1,5 +1,5 @@
 import './App.css';
-
+import {useState} from 'react';
 function App() {
   const movie=[
     {
@@ -24,15 +24,31 @@ function App() {
       <div className="App">
          <header className="App-header">
               <h1>Hello {name1}</h1>
-     
+              <Counter />
      {movie.map(nm=><Data name={nm.name} img={nm.img}/>)}
            <h5>Start see all favourite movie</h5>
+    
         </header>
     
       </div>
     );
   }
-  
+  function Counter(){
+    //let like=4;
+    const [like,setLike]=useState(0);
+    const [dislike,setDislike]=useState(0);
+    return(
+    <div>
+      <button onClick={()=>{
+        // like++;       console.log(like);
+     setLike(like+1);
+     }}>👍{like}</button>
+         <button onClick={()=>{
+           setDislike(dislike+1);
+     }}>👎{dislike}</button>
+    </div>
+    );
+  }
   function Data({ name, img }) {
     return (
       <div className="data">
