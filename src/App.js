@@ -53,6 +53,7 @@ function App() {
                    <li><Link to="/addcolor">ADD COLOR list</Link></li>
                  <li><Link to="/">HOME</Link></li>
                  <li><Link to="/tic">Tic</Link></li>
+                
                  </ul>
                  
                  <Switch>
@@ -94,7 +95,7 @@ function App() {
             <Tic />
           </Route>
           <Route path="/">ftuhjgykyhfhgdfgs</Route>
-         
+          <Route path="**">404 error</Route>
         </Switch>
 
                    
