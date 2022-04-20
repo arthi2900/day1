@@ -1,5 +1,5 @@
 .App {
-  text-align: center;
+  
 }
 
 .App-logo {
@@ -36,3 +36,50 @@
     transform: rotate(360deg);
   }
 }
+.movie-poster{
+  width:340px;
+  height: 270px;
+  object-fit:cover;
+  }
+  .movie-container{
+    width:340px;
+    }
+    .head{
+      display:flex;
+      align-items: center;
+      justify-content: space-around;
+     margin:0px;
+    }
+    .movie-name{
+       margin:0;
+       align-items: center;
+    }
+    .movie-rating{
+      align-items:flex-end;
+    }
+    .movie-summary{
+      margin-top:10px;
+    }
+        .movie-starcast{
+      margin-top:0;
+    }
+    .movie-list{
+display: flex;
+gap:16px;
+flex-wrap: wrap;
+justify-content: space-around;
+
+    }
+    .counter{
+      display: flex;
+      gap:5px;
+    }
+    .like-dislike{
+      font-size:20px;
+    }
+    .add-movie-form{
+      display:flex;
+     flex-direction: column;
+     gap:10px;
+     margin:16px;
+    }

@@ -1,7 +1,13 @@
 import './App.css';
 import {useState} from 'react';
+import Button from '@mui/material/Button';
+import { TextField } from '@mui/material';
+import { Movie } from './Movie';
+import { Tic } from './Tic';
+import { AddColor } from './AddColor';
+import{Switch,Route,Link} from 'react-router-dom';
 function App() {
-  const movielist=[
+  const initial_MovieList=[
     {
       name:"Friendship",
       poster:"https://www.newsbricks.com/root_upld/general-news/2021/09/06281/org_00861202109171235.jpg",
@@ -31,52 +37,69 @@ function App() {
       summary:"Sulthan, a motherless child, is raised by a group of criminals working for his father. However, when his father dies, he decides to reform the group into better people."
      }
   ]
+  const [movielist,setMovieList]=useState(initial_MovieList);
            const name1 = "movie app";
+           const [name,setName]=useState(" ");
+           const [poster,setPoster]=useState("");
+           const [rating,setRating]=useState("");
+           const [summary,setSummary]=useState("");
+           const [starCast,setStarCast]=useState("");
     return (
       <div className="App">
-    
-              <h1>Hello {name1}</h1>
-             <div className="movie-list">
-                  {movielist.map(nm=><Movie name={nm.name} poster={nm.poster} starCast={nm.starCast} rating={nm.rating} summary={nm.summary}  />)}
-                  
-                    </div> 
-                   
-           <h5>Start see all favourite movie</h5>
-            
-          </div>
-    );
-  }
-  function Counter(){
-    //let like=4;
-    const [like,setLike]=useState(0);
-    const [dislike,setDislike]=useState(0);
-    return(
-    <div className='counter'>
-      <button onClick={()=>{
-        // like++;       console.log(like);
-     setLike(like+1);
-     }}>👍{like}</button>
-         <button onClick={()=>{
-           setDislike(dislike+1);
-     }}>👎{dislike}</button>
-    </div>
-    );
-  }
-  function Movie({ name,poster,rating,starCast,summary }) {
-    return (
-      <div className="movie-container">
-       
-        <img src={poster} alt="image" className="movie-poster" />
-        <div className='head'>
-        <h3 className="movie-name">{name} </h3>
-        <h4 className="movie-rating">⭐ {rating} </h4>
-        </div>
-        <p className="movie-starcast">{starCast} </p>
-        <p className="movie-summary">{summary} </p>
-        <Counter /> 
-      </div>
-    );
-  }
-  
+                <h1>Hello {name1}</h1>
+                
+                 <ul>
+                 <li><Link to="/movie">MOVIElist</Link></li>
+                   <li><Link to="/addcolor">ADD COLOR list</Link></li>
+                 <li><Link to="/">HOME</Link></li>
+                 <li><Link to="/tic">Tic</Link></li>
+                 </ul>
+                 
+                 <Switch>
+          <Route exact path="/movie">
+          <div className="add-movie-form">
+              <TextField label="Movie Name" placeholder="name" type="text" onChange={(event)=>setName(event.target
+          .value)}/>
+                  <TextField  label="Movie poster" placeholder=" poster"  onChange={(event)=>setPoster(event.target
+          .value)}/>
+                   <TextField  label="Movie rating" placeholder=" rating" onChange={(event)=>setRating(event.target
+          .value)}/>
+               <TextField  label="Movie starCast" placeholder="starCast" onChange={(event)=>setStarCast(event.target
+          .value)}/>
+                  <TextField  label="Movie summary" placeholder=" summary" onChange={(event)=>setSummary(event.target
+          .value)} />
+                         <Button variant="contained" onClick={()=>{
+                  const newMovie={name:name,
+                    poster:poster,
+                    summary:summary,
+                    starCast:starCast,
+                    rating:rating
+                  };
+                  setMovieList([...movielist,newMovie]);
+                }
+                }>Add movie</Button>  
+                    </div>
+              <div className="movie-list">
+                  {movielist.map(({name,poster,starCast,rating,summary},index)=>( 
+                    <Movie key={index} name={name} poster={poster} starCast={starCast}
+                   rating={rating} summary={summary}  />
+                  ))}
+                   </div>
+          </Route>
+          <Route path="/addcolor">
+            <AddColor />
+          </Route>
+          <Route path="/tic">
+            <Tic />
+          </Route>
+          <Route path="/">ftuhjgyk</Route>
+        </Switch>
 
-export default App;
+                   
+                                  
+                
+                 
+                                    </div>
+    );
+     }
+    export default App;
