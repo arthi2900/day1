@@ -85,6 +85,7 @@ function App() {
                    rating={rating} summary={summary}  />
                   ))}
                    </div>
+
           </Route>
           <Route path="/addcolor">
             <AddColor />
@@ -92,7 +93,7 @@ function App() {
           <Route path="/tic">
             <Tic />
           </Route>
-          <Route path="/">ftuhjgyk</Route>
+          <Route path="/">ftuhjgykyhfhgdfgs</Route>
         </Switch>
 
                    
