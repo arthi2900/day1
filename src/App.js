@@ -94,6 +94,7 @@ function App() {
             <Tic />
           </Route>
           <Route path="/">ftuhjgykyhfhgdfgs</Route>
+         
         </Switch>
 
                    
