@@ -1,0 +1,23 @@
+import { useParams } from 'react-router-dom';
+
+export function MovieDetails({ movielist }) {
+  const { id } = useParams();
+  console.log(id, movielist);
+  const movie = movielist[id];
+  return (
+    <div>
+      <h1>arthi</h1>
+      <div class="movie-detail-container">
+        <div class="movie-space">
+          <iframe width="100%" height="650" src={movie.trialor} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          <h3>{movie.name}</h3>
+          <h3>{movie.rating}</h3>
+        </div>
+        <p>{movie.starCast}</p>
+        <p>{movie.summary}</p>
+      </div>
+    </div>
+
+  );
+
+}

@@ -103,3 +103,6 @@ width:492px;
             flex-direction:column;
                         justify-content: center;
           }
+          .movie-detail-container{
+            max-width: 980px;
+          }
