@@ -1,5 +1,7 @@
 import { useParams } from 'react-router-dom';
-
+import Button from '@mui/material/Button';
+import DeleteIcon from '@mui/icons-material/Delete';
+import {} from "react"
 export function MovieDetails({ movielist }) {
   const { id } = useParams();
   console.log(id, movielist);
@@ -15,6 +17,10 @@ export function MovieDetails({ movielist }) {
         </div>
         <p>{movie.starCast}</p>
         <p>{movie.summary}</p>
+        <Button variant="outlined" startIcon={<DeleteIcon />} onClick={}>
+      Back
+      </Button>
+
       </div>
     </div>
 

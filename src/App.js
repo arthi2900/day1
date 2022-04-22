@@ -32,7 +32,7 @@ function App() {
                  
                  <Switch>
                   <Route path="/movie/:id"><MovieDetails movielist={movielist}/></Route>
-         <Route path="/add"> <AddMovie movielist={movielist} setMovieList={setMovieList}/> </Route>
+         <Route path="/movie/add"> <AddMovie movielist={movielist} setMovieList={setMovieList}/> </Route>
           <Route exact path="/movie">
             <MovieList movielist={movielist} setMovieList={setMovieList}/>
           </Route>
